@@ -26,6 +26,7 @@ int main() {
         operations--;
         amount = main.get_out();
         std::cout <<"Размер конечной последовательности: "<< amount << std::endl;
-        std::cout << main <<;
+        std::cout << main;
+        std::cout << std::endl;
     }
 }
