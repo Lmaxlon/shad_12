@@ -2,9 +2,15 @@
 
 int main() {
     sub::Table main;
-    main.add(8);
-    main.add(7);
-    int m = main.get_out();
-    std::cout << m << std::endl;
+    int amount;
+    int operations;
+    int element;
+    std::cin >> amount >> operations;
+    for (int i = 0; i < amount; i++){
+            std::cin >> element;
+            main.add(element);
+    }
+    amount = main.get_out();
+    std::cout <<"Размер введенной последовательности: "<<amount << std::endl;
     std::cout << main;
 }
