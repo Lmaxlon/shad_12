@@ -16,18 +16,16 @@ int main() {
             int buffer = main.s[i]->get_element();
             for (int j = main.s.size() - 1; j >= 0; j--){
                 if ((main.s[j]->get_element() == buffer)&&(i != j)){
-                    main.s.erase(main.s.begin() + j);
-                    flag = true;
-                } else main.s.erase(main.s.begin() + i);
+                    main.s.erase(main.s.end() - j);
+                    break;
+                }
             }
-            if (flag == true){
-               main.s.erase(main.s.begin() + i);
-               flag = false;
-            }
+            main.s.erase(main.s.begin() + i);
+            break;
         }
         operations--;
         amount = main.get_out();
         std::cout <<"Размер конечной последовательности: "<< amount << std::endl;
-        std::cout << main;
+        std::cout << main <<;
     }
 }
