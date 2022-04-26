@@ -5,7 +5,7 @@ namespace sub{
 const std::ostream& operator<< (std::ostream &out, const Table &t){
 		for (int i = 0; i < t.s.size(); ++i){
 			out <<t.s[i]->get_element();
-			std::cout << std::endl;
+			std::cout << " ";
 		}
 		return out;
 	}

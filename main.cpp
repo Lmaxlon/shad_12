@@ -2,15 +2,32 @@
 
 int main() {
     sub::Table main;
-    int amount;
-    int operations;
+    int amount;//количество элементов в последовательности
+    int operations;// количество операций (проходов)
     int element;
+    bool flag = false;
     std::cin >> amount >> operations;
     for (int i = 0; i < amount; i++){
             std::cin >> element;
             main.add(element);
     }
-    amount = main.get_out();
-    std::cout <<"Размер введенной последовательности: "<<amount << std::endl;
-    std::cout << main;
+    while (operations > 0){
+        for (int i = 0; i < main.s.size(); i++){
+            int buffer = main.s[i]->get_element();
+            for (int j = main.s.size() - 1; j >= 0; j--){
+                if ((main.s[j]->get_element() == buffer)&&(i != j)){
+                    main.s.erase(main.s.begin() + j);
+                    flag = true;
+                } else main.s.erase(main.s.begin() + i);
+            }
+            if (flag == true){
+               main.s.erase(main.s.begin() + i);
+               flag = false;
+            }
+        }
+        operations--;
+        amount = main.get_out();
+        std::cout <<"Размер конечной последовательности: "<< amount << std::endl;
+        std::cout << main;
+    }
 }
